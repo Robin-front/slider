@@ -43,5 +43,5 @@ Handle.propTypes = {
   disabled: PropTypes.bool,
   min: PropTypes.number,
   max: PropTypes.number,
-  value: PropTypes.number,
+  value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 };

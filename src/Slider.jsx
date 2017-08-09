@@ -11,6 +11,7 @@ class Slider extends React.Component {
     defaultValue: PropTypes.number,
     value: PropTypes.number,
     disabled: PropTypes.bool,
+    precision: PropTypes.number,
   };
 
   constructor(props) {
