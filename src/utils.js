@@ -26,7 +26,10 @@ export function getClosestPoint(val, { marks, step, min }) {
   return points[diffs.indexOf(Math.min(...diffs))];
 }
 
-export function getPrecision(step) {
+export function getPrecision(step, props) {
+  if ('precision' in props) {
+    return props.precision;
+  }
   const stepString = step.toString();
   let precision = 0;
   if (stepString.indexOf('.') >= 0) {
@@ -64,7 +67,7 @@ export function ensureValuePrecision(val, props) {
   const { step } = props;
   const closestPoint = getClosestPoint(val, props);
   return step === null ? closestPoint :
-    parseFloat(closestPoint.toFixed(getPrecision(step)));
+    Number(closestPoint).toFixed(getPrecision(step, props));
 }
 
 export function pauseEvent(e) {
